@@ -1,0 +1,28 @@
+<p-table [value]="_value" [scrollable]="true" scrollHeight="400px">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Autorizador</th>
+            <th>Data/Hora</th>
+            <th>Autorização</th>
+            <th>Retorno Autorização</th>
+            <th>Inutilização</th>
+            <th>Consulta Protocolo</th>
+            <th>Status Serviço</th>
+            <th>Consulta Cadastro</th>
+            <th>Recepção Evento</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-status>
+        <tr>
+            <td>{{status.autorizador}}</td>
+            <td>{{status.data | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+            <td style="text-align: center;"><vs-status-color [status]="status.autorizacao"></vs-status-color></td>
+            <td style="text-align: center;"><vs-status-color [status]="status.retAutorizacao"></vs-status-color></td>
+            <td style="text-align: center;"><vs-status-color [status]="status.inutilizacao"></vs-status-color></td>
+            <td style="text-align: center;"><vs-status-color [status]="status.consultaProtocolo"></vs-status-color></td>
+            <td style="text-align: center;"><vs-status-color [status]="status.statusServico"></vs-status-color></td>
+            <td style="text-align: center;"><vs-status-color [status]="status.consultaCadastro"></vs-status-color></td>
+            <td style="text-align: center;"><vs-status-color [status]="status.recepcaoEvento"></vs-status-color></td>
+        </tr>
+    </ng-template>
+</p-table>

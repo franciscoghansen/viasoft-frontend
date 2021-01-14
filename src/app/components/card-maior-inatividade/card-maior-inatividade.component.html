@@ -1,0 +1,19 @@
+<vs-grupo header="Maior Indisponibilidade">
+    <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-12 p-lg-12">
+            <span>
+                <label for="servico">Serviço</label>
+                <p-dropdown [options]="_servicos" [(ngModel)]="_servico" [showClear]="true" id="servico"
+                    (onChange)="onServicoChange($event)" [autoDisplayFirst]="false">
+                </p-dropdown>
+            </span>
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-12" *ngIf="_dto">
+            <p>Autorizador: {{_dto.autorizador}}</p>
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-12" *ngIf="_dto">
+            <p>Número de Indisponibilidades: {{_dto.count}}</p>
+        </div>
+    </div>
+</vs-grupo>
+<p-messages></p-messages>

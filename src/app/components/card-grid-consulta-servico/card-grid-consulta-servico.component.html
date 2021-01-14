@@ -1,0 +1,41 @@
+<vs-grupo header="Consultar Status Serviço">
+    <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-6 p-lg-2">
+            <span>
+                <label for="autorizador">Autorizador</label>
+                <p-dropdown [(ngModel)]="_autorizador" [options]="_autorizadores" [showClear]="true"
+                    [autoDisplayFirst]="false" id="autorizador">
+                </p-dropdown>
+            </span>
+        </div>
+        <div class=" p-col-12 p-md-6 p-lg-2 p-col-align-end">
+            <p-checkbox label="Filtrar por Data" [(ngModel)]="_filtraDatas"></p-checkbox>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-2">
+            <span>
+                <label for="dataInicial">Data Inicial</label>
+                <p-calendar [(ngModel)]="_dataInicial" [locale]="ptBr" [showIcon]="true" [showOnFocus]="true"
+                    name="dataInicial" [showButtonBar]="true" appendTo="body" [showTime]="true" hourFormat="24"
+                    dateFormat="dd/mm/yy" [disabled]="!_filtraDatas"></p-calendar>
+            </span>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-2">
+            <span>
+                <label for="dataFinal">Data Final</label>
+                <p-calendar [(ngModel)]="_dataFinal" [locale]="ptBr" [showIcon]="true" [showOnFocus]="true"
+                    name="dataFinal" [showButtonBar]="true" appendTo="body" [showTime]="true" hourFormat="24"
+                    dateFormat="dd/mm/yy" [disabled]="!_filtraDatas"></p-calendar>
+            </span>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-2 p-lg-offset-2 p-col-align-end">
+            <vs-botao label="Buscar" (onClick)="onBuscarClick()"></vs-botao>
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-12">
+            <vs-lista-ufs [(ngModel)]="_status"></vs-lista-ufs>
+        </div>
+        <div class="p-col-12 p-md-12 p-lg-12">
+            <p-paginator [rows]="10" [totalRecords]="_recordCount" [rowsPerPageOptions]="[10,25,50,75,100]"
+                (onPageChange)="onPageChange($event)"></p-paginator>
+        </div>
+    </div>
+</vs-grupo>

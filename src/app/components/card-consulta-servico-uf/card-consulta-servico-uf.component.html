@@ -1,0 +1,21 @@
+<vs-grupo header="Status do Serviço">
+    <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4 p-lg-4">
+            <label for="autorizador">Autorizador</label>
+            <p-dropdown [options]="_autorizadores" [(ngModel)]="_autorizador" [showClear]="true"
+                (onChange)="onProperyChange()" [autoDisplayFirst]="false" name="autorizador"></p-dropdown>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-4">
+            <label for="servico">Serviço</label>
+            <p-dropdown [options]="_servicos" [(ngModel)]="_servico" [showClear]="true" [autoDisplayFirst]="false"
+                (onChange)="onProperyChange()" name="servico"></p-dropdown>
+        </div>
+        <div class="p-col-12 p-md-4 p-lg-3 p-col-align-end">
+            <vs-botao label="Buscar" (onClick)="onBuscarClick()"></vs-botao>
+        </div>
+        <div class="p-col-1 p-md-1 p-lg-1 p-col-align-end" *ngIf="_status">
+            <vs-status-color [status]="_status.status"></vs-status-color>
+        </div>
+    </div>
+</vs-grupo>
+<p-messages></p-messages>
